@@ -1,0 +1,22 @@
+
+allprojects {
+    group = 'ch.alni'
+    version = '1.0.0'
+
+    repositories {
+        mavenCentral()
+    }
+
+    apply plugin: 'idea'
+}
+
+subprojects {
+    project.tasks.withType(JavaCompile) {
+        sourceCompatibility = '11'
+        targetCompatibility = '11'
+    }
+}
+
+wrapper {
+    gradleVersion = '5.6.3'
+}
