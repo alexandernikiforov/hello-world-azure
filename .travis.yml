@@ -1,0 +1,21 @@
+language: java
+
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+
+jdk:
+  - oraclejdk11
+
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+    - $HOME/.m2
+
+install:
+  - ./gradlew wrapper --gradle-version 5.3.6
+  - ./gradlew -v
+
+script:
+  - ./gradlew build --continue
