@@ -19,3 +19,6 @@ install:
 
 script:
   - ./gradlew build --continue
+
+after_success:
+  - curl --ftp-create-dirs -T hello-azure-war/build/libs/hello-azure-1.0.0.war sftp://${SFTP_USER}:${SFTP_PASSWORD}@${SFTP_ENDPOINT}
