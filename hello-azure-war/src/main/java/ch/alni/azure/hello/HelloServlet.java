@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * A simple servlet printing Hello.
  */
-@WebServlet("/hello")
+@WebServlet(urlPatterns = {"/hello"})
 public class HelloServlet extends HttpServlet {
 
     @Override

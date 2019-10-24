@@ -3,6 +3,10 @@ plugins {
     id 'java'
 }
 
+configurations {
+    archives
+}
+
 war {
     archivesBaseName = 'hello-azure'
 }
@@ -12,3 +16,6 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
+artifacts {
+    archives war
+}

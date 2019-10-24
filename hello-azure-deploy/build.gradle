@@ -1,0 +1,28 @@
+configurations {
+    war
+}
+
+dependencies {
+    war project(path: ':hello-azure-war', configuration: 'archives')
+}
+
+task copyArtifacts(type: Copy) {
+    inputs.files(configurations.war)
+    from configurations.war
+    into 'build/artifacts'
+}
+
+task buildImage(type: Exec, group: 'build') {
+    dependsOn copyArtifacts
+    description = 'Builds Tomcat image from the hello-azure-war'
+
+    executable = 'docker'
+    args = [
+            'build',
+            '--build-arg', "HELLO_AZURE_VERION=${project.version}",
+            '-t', 'hello-azure-tomcat:latest',
+            '-t', "hello-azure-tomcat:${project.version}",
+            '.'
+    ]
+
+}
