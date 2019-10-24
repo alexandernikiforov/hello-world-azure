@@ -3,5 +3,5 @@
 This project contains examples of very basic applications to be deployed in Azure (PaaS).
 
 ## How To Run With Docker
-docker run --name azure-tomcat -d -p 8080:8080 hello-azure-tomcat:latest
-docker exec -it azure-tomcat bash
+- docker run --name azure-tomcat -d -p 8080:8080 hello-azure-tomcat:latest
+- docker exec -it azure-tomcat bash
