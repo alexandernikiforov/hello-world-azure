@@ -21,11 +21,9 @@ script:
   - ./gradlew build --continue
 
 before_deploy:
-  - mkdir webapps
-  - cp hello-azure-war/build/libs/hello-azure-1.0.0.war webapps/hello-azure.war
-  - git add webapps/hello-azure.war
-  - git commit -m "Deploying hello-azure-1.0.0.war"
-  - git status
+  - mkdir -p build/webapps
+  - cp hello-azure-war/build/libs/hello-azure-1.0.0.war build/webapps/hello-azure.war
+  - cd build
 
 deploy:
   skip_cleanup: true
