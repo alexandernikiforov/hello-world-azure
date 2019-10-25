@@ -23,7 +23,10 @@ script:
 before_deploy:
   - mkdir -p webapps
   - cp hello-azure-war/build/libs/hello-azure-1.0.0.war webapps/hello-azure.war
+  - git add webapps/hello-azure.war
+  - git status
 
 deploy:
   verbose: true
+  skip_cleanup: true
   provider: azure_web_apps
