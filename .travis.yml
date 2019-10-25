@@ -13,6 +13,10 @@ cache:
     - $HOME/.gradle/wrapper/
     - $HOME/.m2
 
+before_install:
+  - sudo apt-get install -y curl
+  - curl --version
+
 install:
   - ./gradlew wrapper
   - ./gradlew -v
