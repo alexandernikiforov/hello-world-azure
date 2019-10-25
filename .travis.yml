@@ -20,6 +20,5 @@ install:
 script:
   - ./gradlew build --continue
 
-after_success:
-  - curl -v --ftp-create-dirs --user ${FTP_USER}:${FTP_PASSWORD} -Q "DELE /site/wwwroot/webapps/hello-azure.war" ftp://${FTP_ENDPOINT}/
-  - curl -v --ftp-create-dirs --user ${FTP_USER}:${FTP_PASSWORD} -T hello-azure-war/build/libs/hello-azure-1.0.0.war ftp://${FTP_ENDPOINT}/webapps/hello-azure.war
+deploy:
+  provider: azure_web_apps
