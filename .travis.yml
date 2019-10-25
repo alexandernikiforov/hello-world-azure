@@ -21,4 +21,4 @@ script:
   - ./gradlew build --continue
 
 after_success:
-  - curl -T hello-azure-war/build/libs/hello-azure-1.0.0.war ftps://${SFTP_USER}:${SFTP_PASSWORD}@${SFTP_ENDPOINT}/webapps/
+  - curl -T hello-azure-war/build/libs/hello-azure-1.0.0.war ftps://${FTP_USER}:${FTP_PASSWORD}@${FTP_ENDPOINT}/webapps/hello-azure.war
