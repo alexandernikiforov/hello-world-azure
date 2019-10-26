@@ -23,10 +23,8 @@ script:
 before_deploy:
   - mkdir -p webapps
   - cp hello-azure-war/build/libs/hello-azure-1.0.0.war webapps/hello-azure.war
-  - git add webapps/hello-azure.war
-  - git status
 
 deploy:
+  provider: script
   verbose: true
-  skip_cleanup: true
-  provider: azure_web_apps
+  script: curl -v -X POST -u ${AZURE_WA_USERNAME}:${AZURE_WA_PASSWORD} --data-binary @"webapps/hello-azure.war" https://${AZURE_WA_SITE}.scm.azurewebsites.net/api/wardeploy

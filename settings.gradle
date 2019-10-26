@@ -1,4 +1,4 @@
 rootProject.name = 'hello-world-azure'
 
-include 'hello-azure-war', 'hello-azure-deploy'
+include 'hello-azure-war', 'hello-azure-docker'
 
