@@ -27,4 +27,5 @@ before_deploy:
 deploy:
   provider: script
   verbose: true
+  skip_cleanup: true
   script: curl -v -X POST -u ${AZURE_WA_USERNAME}:${AZURE_WA_PASSWORD} --data-binary @"webapps/hello-azure.war" https://${AZURE_WA_SITE}.scm.azurewebsites.net/api/wardeploy
