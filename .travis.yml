@@ -22,7 +22,7 @@ script:
 
 before_deploy:
   - mkdir -p webapps
-  - cp hello-azure-war/build/libs/hello-azure-1.0.0.war webapps/hello-azure.war
+  - cp hello-azure-war/build/libs/hello-azure-1.0.0.${TRAVIS_BUILD_NUMBER}.war webapps/hello-azure.war
 
 deploy:
   provider: script

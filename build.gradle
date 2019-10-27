@@ -1,10 +1,13 @@
-
 allprojects {
     group = 'ch.alni'
     version = '1.0.0'
 
     repositories {
         mavenCentral()
+    }
+
+    ext {
+        buildNumber = System.getenv('TRAVIS') ?  System.getenv('TRAVIS_BUILD_NUMBER') : '0'
     }
 
     apply plugin: 'idea'
@@ -20,3 +23,4 @@ subprojects {
 wrapper {
     gradleVersion = '5.6.3'
 }
+
