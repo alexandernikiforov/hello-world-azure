@@ -19,9 +19,9 @@ task buildImage(type: Exec, group: 'build') {
     executable = 'docker'
     args = [
             'build',
-            '--build-arg', "HELLO_AZURE_VERION=${project.version}",
+            '--build-arg', "HELLO_AZURE_VERION=${project.buildVersion}",
             '-t', 'hello-azure-tomcat:latest',
-            '-t', "hello-azure-tomcat:${project.version}",
+            '-t', "hello-azure-tomcat:${project.buildVersion}",
             '.'
     ]
 

@@ -8,6 +8,7 @@ allprojects {
 
     ext {
         buildNumber = System.getenv('TRAVIS') ?  System.getenv('TRAVIS_BUILD_NUMBER') : '0'
+        buildVersion = version + '.' + buildNumber
     }
 
     apply plugin: 'idea'
